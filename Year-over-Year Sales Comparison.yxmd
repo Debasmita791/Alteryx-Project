@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2025.1" RunE2="T">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="78" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Sample_Superstore .xlsx
+Query=`Orders$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Row ID" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="Double" />
+            <Field name="Order ID" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Order Date" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="Date" />
+            <Field name="Ship Date" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="Date" />
+            <Field name="Ship Mode" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Customer ID" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Customer Name" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Segment" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Country" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="City" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="State" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Postal Code" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Region" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Product ID" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Category" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Sub-Category" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Product Name" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_WString" />
+            <Field name="Sales" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="Double" />
+            <Field name="Quantity" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="Double" />
+            <Field name="Discount" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="Double" />
+            <Field name="Profit" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="174" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="DateTimeYear([Order Date])" field="YEAR" size="1073741823" type="V_WString" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[YEAR = DateTimeYear([Order Date])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="294" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Sales" action="Sum" rename="Sum_Sales" />
+            <SummarizeField field="YEAR" action="GroupBy" rename="YEAR" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="PlotlyCharting">
+        <Position x="414" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ChartingFields>
+            <Traces json:Array="true" xmlns:json="http://james.newtonking.com/projects/json">
+              <type>bar</type>
+              <mode>markers</mode>
+              <orientation>v</orientation>
+              <xsrc>YEAR</xsrc>
+              <ysrc>Sum_Sales</ysrc>
+              <textposition>None</textposition>
+              <marker>
+                <line>
+                  <width>0</width>
+                </line>
+                <color>#1f77b4</color>
+                <opacity>0.3</opacity>
+              </marker>
+            </Traces>
+            <Layout>
+              <title>
+                <text>&lt;b&gt;Year-over-Year Sales Comparison&lt;/b&gt;</text>
+              </title>
+              <font>
+                <family>sans-serif</family>
+                <size>12</size>
+              </font>
+              <autosize>false</autosize>
+              <width>700</width>
+              <height>849</height>
+              <showlegend>false</showlegend>
+              <hovermode>closest</hovermode>
+              <xaxis>
+                <range>-0.5</range>
+                <range>3.5</range>
+                <autorange>true</autorange>
+                <title>
+                  <text>YEAR</text>
+                </title>
+                <type>category</type>
+                <tickfont>
+                  <size>12</size>
+                </tickfont>
+                <nticks>0</nticks>
+                <showticklabels>true</showticklabels>
+                <showgrid>false</showgrid>
+                <tickangle>auto</tickangle>
+              </xaxis>
+              <yaxis>
+                <range>0</range>
+                <range>772575.81389473658</range>
+                <autorange>true</autorange>
+                <title>
+                  <text>
+                  </text>
+                </title>
+                <type>linear</type>
+                <showgrid>false</showgrid>
+              </yaxis>
+              <legend>
+                <font>
+                  <size>12</size>
+                </font>
+                <borderwidth>0</borderwidth>
+              </legend>
+              <margin>
+                <pad>0</pad>
+                <t>100</t>
+                <b>80</b>
+                <l>80</l>
+                <r>80</r>
+              </margin>
+            </Layout>
+          </ChartingFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="ComposerInteractiveCharting" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="486" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\HP\AppData\Local\Temp\Alteryx\Engine_14880_534fb8cd76ad44bcbb74d0e3607e7871_\Engine_14880_09faae9ff7864d4f9d440fb03f2da53c~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Report</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <DefaultTZ value="Local" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Year-over-Year Sales Comparison</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="bb10d6ee-ffcb-4ad5-a468-d339128be513" />
+      <Telemetry>
+        <PreviousWorkflowId value="060269d5-2e12-4a5e-a25e-1d5a1c88d4cf" />
+        <OriginWorkflowId value="060269d5-2e12-4a5e-a25e-1d5a1c88d4cf" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

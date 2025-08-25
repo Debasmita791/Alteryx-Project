@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2025.1" RunE2="T">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="330" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Sample_Superstore .xlsx
+Query=`Orders$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Row ID" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="Double" />
+            <Field name="Order ID" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Order Date" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="Date" />
+            <Field name="Ship Date" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="Date" />
+            <Field name="Ship Mode" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Customer ID" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Customer Name" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Segment" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Country" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="City" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="State" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Postal Code" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Region" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Product ID" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Category" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Sub-Category" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_String" />
+            <Field name="Product Name" size="255" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="V_WString" />
+            <Field name="Sales" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="Double" />
+            <Field name="Quantity" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="Double" />
+            <Field name="Discount" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="Double" />
+            <Field name="Profit" source="File: C:\Users\HP\Desktop\Sample_Superstore .xlsx|||`Orders$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+  </Nodes>
+  <Connections />
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <DefaultTZ value="Local" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>total Sales and Profit by Region1</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="3a8eb582-244f-4673-886a-59a08847b850" />
+      <Telemetry>
+        <PreviousWorkflowId value="c151778d-0a3a-4f03-97d5-5c7597e615bb" />
+        <OriginWorkflowId value="c151778d-0a3a-4f03-97d5-5c7597e615bb" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
